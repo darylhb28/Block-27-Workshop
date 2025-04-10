@@ -34,7 +34,7 @@ async function handleSubmit(event){
 
     return(
         <>
-        <h2>Sign Up</h2>
+        <h2><strong>Sign Up</strong></h2>
         {error && <p>{error}</p>}
 
         <form onSubmit={handleSubmit}>
@@ -55,7 +55,7 @@ async function handleSubmit(event){
             </label>
             {
                 (username && username.length < 5) && 
-                <p className="usernameMessage"><strong>Username must me more than 5 letters</strong></p>
+                <p className="usernameMessage"><strong>Username must be at least 5 letters</strong></p>
             }
             <br/>
             <button className="button">Submit</button>

@@ -33,7 +33,7 @@ async function handleClick(event){
 
     return (
         <>
-            <h2>Authenticate</h2>
+            <h2><strong>Authenticate</strong></h2>
             {successMessage && 
                 <div>
                     <p>{successMessage}</p>
