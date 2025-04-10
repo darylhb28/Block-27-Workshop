@@ -1,6 +1,7 @@
 import { useState } from "react"
+import './Styling.css'
 
-function SignUpForm({}){
+function SignUpForm({token, setToken}){
     const [username, setUsername] = useState ("")
     const [password, setPassword] = useState ("")
     const [error, setError] = useState (null)
@@ -21,6 +22,7 @@ async function handleSubmit(event){
         }) 
         const result = await response.json()
         console.log(result)
+        setToken(result.token)
 
     } catch (error){
         setError(error.message)
@@ -43,6 +45,7 @@ async function handleSubmit(event){
                 onChange={(event)=> setUsername(event.target.value)}
                 />
             </label>
+            <br/>
             <label>
                 Password: 
                 <input 
@@ -50,7 +53,12 @@ async function handleSubmit(event){
                 onChange={(event)=>setPassword(event.target.value)}
                 />
             </label>
-            <button>Submit</button>
+            {
+                (username && username.length < 5) && 
+                <p className="usernameMessage"><strong>Username must me more than 5 letters</strong></p>
+            }
+            <br/>
+            <button className="button">Submit</button>
         </form>
         </>
     )
